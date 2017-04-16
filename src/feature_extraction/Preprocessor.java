@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Preprocessor {
 	/**
-	 * Performs all necessary preprocessing steps on given tweet, and a HashMap:
+	 * Performs all necessary preprocessing steps on given tweet, and returns a HashMap:
 	 * From -> To
 	 * negated -> Vector of Booleans that specifies whether each word is negated
 	 * emojis -> Vector of emojis
