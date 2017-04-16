@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/feature_extraction/EmojiExtractor.java=UTF-8
+encoding//src/feature_extraction/EmoticonExtractor.java=UTF-8
+encoding//src/feature_extraction/Normalizer.java=UTF-8
+encoding//src/feature_extraction/Preprocessor.java=UTF-8
+encoding//src/feature_extraction/PunctuationExtractor.java=UTF-8

@@ -1,0 +1,14 @@
+﻿//List of arabic negation terms
+//reference: http://www.everyday-arabic.com/2013/12/negation-in-arabic-language.html
+
+لا
+لاا
+لم
+ما
+ماا
+لن
+ليس
+ليست 
+لست 
+لستم
+مش

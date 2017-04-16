@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE user_configuration SYSTEM "resources/schema/DIRA.dtd">
+
+<!-- DIRA Base Configuration. This configuration may be overridden at
+     runtime by providing a similar configuration with the input
+-->
+
+<!-- The configuration attributes below affect the output in
+     general, and they are intended for the novice user
+ -->
+<user_configuration
+        show_scores="no"
+        show_features="no"
+        num_expansions="15"
+        show_gloss="yes"
+        xmlns="urn:edu.columbia.ccls.dira:0.2">
+    <output_lang_or_dialect value="EGY"/>
+    <inflection value="EGY"/>
+    <!-- The configuration attributes below affect only the scoring
+         of the expansions in the output, and they are intended
+         for the advanced user only
+     -->
+    <ranking_preference alpha="0.5">
+        <features>
+            <noun>
+                <n_prc3 W_0="0.5" W_-gt-a_ques="0.5"></n_prc3>
+                <n_prc2 W_fa_conn="0.11" W_fa_rc="0.11" W_na="0.11" W_0="0.11" W_wa_part="0.11" W_wa_sub="0.11"
+                        W_fa_sub="0.11" W_wa_conj="0.11" W_fa_conj="0.11"></n_prc2>
+                <n_prc1 W_ka_prep="0.2" W_0="0.2" W_li_prep="0.2" W_bi_prep="0.2" W_la_prep="0.2"></n_prc1>
+                <n_prc0 W_0="0.5" W_Al_det="0.5" W_Aa_prondem="0"></n_prc0>
+                <n_per W_na="1.0"></n_per>
+                <n_asp W_na="1.0"></n_asp>
+                <n_vox W_na="1.0"></n_vox>
+                <n_mod W_na="1.0"></n_mod>
+                <n_gen W_m="0.5" W_f="0.5"></n_gen>
+                <n_num W_s="0.33" W_d="0.33" W_p="0.33"></n_num>
+                <n_stt W_i="0.25" W_c="0.25" W_d="0.25" W_u="0.25"></n_stt>
+                <n_cas W_u="0.25" W_n="0.25" W_a="0.25" W_g="0.25"></n_cas>
+                <n_enc0 W_3mp_poss="0.0769" W_2mp_poss="0.0769" W_3ms_poss="0.0769" W_0="0.0769" W_2fp_poss="0.0769"
+                        W_1s_poss="0.0769" W_1p_poss="0.0769" W_2fs_poss="0.0769" W_3d_poss="0.0769"
+                        W_3fp_poss="0.0769" W_2d_poss="0.0769" W_3fs_poss="0.0769" W_2ms_poss="0.0769"></n_enc0>
+                <n_enc1 W_0="1"/>
+                <n_enc2 W_0="1"/>
+                <n_source W_lex="1"/>
+                <n_rat W_na="1"/>
+            </noun>
+			<verb>
+                <v_prc3 W_0="0.5" W_-gt-a_ques="0.5"></v_prc3>
+                <v_prc2 W_fa_conn="0.125" W_fa_rc="0.125" W_0="0.125" W_wa_part="0.125" W_wa_sub="0.125" W_fa_sub="0.125"
+                        W_wa_conj="0.125" W_fa_conj="0.125"></v_prc2>
+                <v_prc1 W_la_emph="0.167" W_li_jus="0.167" W_0="0.167" W_la_rc="0.167" W_sa_fut="0.167"
+                        W_bi_part="0.165"></v_prc1>
+                <v_prc0 W_mA_part="0.2" W_0="0.2" W_mA_neg="0.2" W_lA_neg="0.2" W_mA_rel="0.2" W_Aa_prondem="0"></v_prc0>
+                <v_per W_3="0.333" W_2="0.333"  W_1="0.333"></v_per>
+                <v_asp W_p="0.333" W_c="0.333" W_i="0.333"></v_asp>
+                <v_vox W_p="0.5" W_a="0.5"></v_vox>
+                <v_mod W_s="0.333" W_i="0.333" W_j="0.333"></v_mod>
+                <v_gen W_m="0.5" W_f="0.5"></v_gen>
+                <v_num W_s="0.333" W_d="0.333" W_p="0.333"></v_num>
+                <v_stt W_na="1.0"></v_stt>
+                <v_cas W_na="1.0"></v_cas>
+                <v_enc0 W_0="0.0769" W_3d_dobj="0.0769" W_3mp_dobj="0.0769" W_1s_dobj="0.0769"
+                        W_3fs_dobj="0.0769" W_2d_dobj="0.0769" W_2mp_dobj="0.0769" W_3ms_dobj="0.0769"
+                        W_2fp_dobj="0.0769" W_3fp_dobj="0.0769" W_2fs_dobj="0.0769" W_1p_dobj="0.0769"
+                        W_2ms_dobj="0.0769"></v_enc0>
+                <v_enc1 W_0="1"/>
+                <v_enc2 W_0="1"/>
+                <v_source W_lex="1"/>
+                <v_rat W_na="1"/>
+            </verb>
+        </features>
+    </ranking_preference>
+</user_configuration>
