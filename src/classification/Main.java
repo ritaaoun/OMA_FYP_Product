@@ -8,7 +8,7 @@ import feature_extraction.FeatureExtractor;
 public class Main {
 	/**
 	 * Reads tweets from a file, generates their feature file then classifies them.
-	 * Command-line arguments should be: location_of_tweets, location_of_output_file
+	 * Command-line arguments should be: "location_of_tweets location_of_output_file"
 	 * @param args Input of main
 	 */
 	public static void main(String[] args) {
