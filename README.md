@@ -7,7 +7,6 @@
 * Sample tweets are tweets taken from the ASTD dataset (http://www.emnlp2015.org/proceedings/EMNLP/pdf/EMNLP299.pdf).
 * The output file is list of labels, where 0 corresponds to negative, 1 corresponds to neutral and 2 corresponds to positive.
 * More details on the model can be found at: http://aclweb.org/anthology/W17-1314.
-* Make sure to run using UTF-8 encoding.
 
 ## Contact us
 * Rita Aoun: rra47@mail.aub.edu
