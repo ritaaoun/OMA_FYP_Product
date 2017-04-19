@@ -1,6 +1,7 @@
 package feature_extraction;
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -93,7 +94,8 @@ public class NGramExtractor {
     public static HashSet<String> getUnigrams() {
     	HashSet<String> unigrams = new HashSet<String>();
     	try {
-	    	BufferedReader br = new BufferedReader(new FileReader("Resources\\N-Grams\\unigrams.txt"));
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(
+	    					new FileInputStream("Resources\\N-Grams\\unigrams.txt"), "UTF-8"));
 			String line;
 			while ((line = br.readLine()) != null && line.length()!=0) {
 				unigrams.add(line);
@@ -113,7 +115,8 @@ public class NGramExtractor {
     public static HashSet<String> getBigrams() {
     	HashSet<String> bigrams = new HashSet<String>();
     	try {
-	    	BufferedReader br = new BufferedReader(new FileReader("Resources\\N-Grams\\bigrams.txt"));
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream("Resources\\N-Grams\\bigrams.txt"), "UTF-8"));
 			String line;
 			while ((line = br.readLine()) != null && line.length()!=0) {
 				bigrams.add(line);
@@ -133,7 +136,8 @@ public class NGramExtractor {
     public static HashSet<String> getTrigrams() {
     	HashSet<String> trigrams = new HashSet<String>();
     	try {
-	    	BufferedReader br = new BufferedReader(new FileReader("Resources\\N-Grams\\trigrams.txt"));
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream("Resources\\N-Grams\\trigrams.txt"), "UTF-8"));
 			String line;
 			while ((line = br.readLine()) != null && line.length()!=0) {
 				trigrams.add(line);
@@ -153,7 +157,8 @@ public class NGramExtractor {
     public static HashSet<String> getFourgrams() {
     	HashSet<String> fourgrams = new HashSet<String>();
     	try {
-	    	BufferedReader br = new BufferedReader(new FileReader("Resources\\N-Grams\\fourgrams.txt"));
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream("Resources\\N-Grams\\fourgrams.txt"), "UTF-8"));
 			String line;
 			while ((line = br.readLine()) != null && line.length()!=0) {
 				fourgrams.add(line);
@@ -173,7 +178,8 @@ public class NGramExtractor {
     public static HashSet<String> getCharTrigrams() {
     	HashSet<String> charTrigrams = new HashSet<String>();
     	try {
-	    	BufferedReader br = new BufferedReader(new FileReader("Resources\\N-Grams\\char_trigrams.txt"));
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream("Resources\\N-Grams\\char_trigrams.txt"), "UTF-8"));
 			String line;
 			while ((line = br.readLine()) != null && line.length()!=0) {
 				charTrigrams.add(line);
@@ -193,7 +199,8 @@ public class NGramExtractor {
     public static HashSet<String> getCharFourgrams() {
     	HashSet<String> charFourgrams = new HashSet<String>();
     	try {
-	    	BufferedReader br = new BufferedReader(new FileReader("Resources\\N-Grams\\char_fourgrams.txt"));
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream("Resources\\N-Grams\\char_fourgrams.txt"), "UTF-8"));
 			String line;
 			while ((line = br.readLine()) != null && line.length()!=0) {
 				charFourgrams.add(line);
@@ -213,7 +220,8 @@ public class NGramExtractor {
     public static HashSet<String> getCharFivegrams() {
     	HashSet<String> getCharFivegrams = new HashSet<String>();
     	try {
-	    	BufferedReader br = new BufferedReader(new FileReader("Resources\\N-Grams\\char_fivegrams.txt"));
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream("Resources\\N-Grams\\char_fivegrams.txt"), "UTF-8"));
 			String line;
 			while ((line = br.readLine()) != null && line.length()!=0) {
 				getCharFivegrams.add(line);

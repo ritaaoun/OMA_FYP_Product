@@ -1,7 +1,8 @@
 package classification;
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Vector;
 
@@ -15,7 +16,8 @@ public class TweetIO {
 		Vector<String> tweets = new Vector<String>();
 		try {
 			String line = "";
-			BufferedReader br = new BufferedReader(new FileReader(filename));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(filename), "UTF-8"));
 			while ((line = br.readLine()) != null && line.length()!=0) {
 				tweets.add(line);
 			}

@@ -1,7 +1,10 @@
 package feature_extraction;
 
 import org.w3c.dom.*;
+import org.xml.sax.InputSource;
+
 import javax.xml.parsers.*;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -22,10 +25,14 @@ public class XMLParser {
 	 */
 	public static void inputXML(Vector<HashMap<String, Object>> map, String fileName, boolean withHashtags) {
 		try {
-			DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder;
-			builder = domFactory.newDocumentBuilder();
-			Document doc = builder.parse(new File(fileName));
+			InputStream inputStream= new FileInputStream(fileName);
+	        Reader reader = new InputStreamReader(inputStream,"UTF-8");
+	        InputSource is = new InputSource(reader);
+	        is.setEncoding("UTF-8");
+	        
+	        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	        Document doc = dBuilder.parse(is);
 
 			Node node = doc.getElementsByTagName("in_doc").item(0);
 			// Removing previous tweets
@@ -45,6 +52,7 @@ public class XMLParser {
 				for (String word : tweet) {
 					tweetText += word + " ";
 				}
+				
 				Text a = doc.createTextNode(tweetText);
 				Element p = doc.createElement("in_seg");
 				p.setAttribute("id", "tweet" + i);
@@ -69,10 +77,16 @@ public class XMLParser {
 					}
 				}
 			}
+			
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(fileName));
+			
+			FileOutputStream f = new FileOutputStream(fileName);
+//			
+//			StreamResult result = new StreamResult(f);
+			StreamResult result = new StreamResult(new OutputStreamWriter(f, "UTF-8"));
+			transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 			transformer.transform(source, result);
 
 			fixNamespace(fileName);
@@ -103,10 +117,15 @@ public class XMLParser {
 
 		HashMap<String, Object> output = new HashMap<String, Object>();
 		try {
-			File inputFile = new File(filename);
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(inputFile);
+			InputStream inputStream= new FileInputStream(filename);
+	        Reader reader = new InputStreamReader(inputStream,"UTF-8");
+	        InputSource is = new InputSource(reader);
+	        is.setEncoding("UTF-8");
+	        
+	        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	        Document doc = dBuilder.parse(is);
+	        
 			doc.getDocumentElement().normalize();
 
 			NodeList segments = doc.getElementsByTagName("out_seg");
@@ -222,13 +241,14 @@ public class XMLParser {
 	 */
 	private static void fixNamespace(String fileName) {
 		try {
-			String content = new String(Files.readAllBytes(Paths.get(fileName)));
+			String content = new String(Files.readAllBytes(Paths.get(fileName)), "UTF-8");
+			
 			int ind = content.indexOf("<madamira_input");
 			int ind2 = content.indexOf(">", ind);
 			String fixed = content.substring(0, ind2) + " xmlns=\"urn:edu.columbia.ccls.madamira.configuration:0.1\""
 					+ content.substring(ind2);
-
-			PrintStream out = new PrintStream(new FileOutputStream(fileName));
+			
+			PrintStream out = new PrintStream(new FileOutputStream(fileName), true, "UTF-8");
 			out.print(fixed);
 			out.close();
 		} catch (Exception e) {

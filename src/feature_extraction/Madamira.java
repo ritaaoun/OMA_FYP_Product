@@ -6,6 +6,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -31,10 +35,12 @@ public class Madamira {
             jc = JAXBContext.newInstance(MADAMIRA_NS);
             Unmarshaller unmarshaller = jc.createUnmarshaller();
 
+            InputStream inputStream = new FileInputStream(infilename);
+            Reader reader = new InputStreamReader(inputStream, "UTF-8");
+            
             // The structure of the MadamiraInput object is exactly similar to the
             // madamira_input element in the XML
-            final MadamiraInput input = (MadamiraInput)unmarshaller.unmarshal(
-                    new File( infilename ) );
+            final MadamiraInput input = (MadamiraInput)unmarshaller.unmarshal(reader);
             {
                 int numSents = input.getInDoc().getInSeg().size();
                 String outputAnalysis = input.getMadamiraConfiguration().
@@ -69,6 +75,9 @@ public class Madamira {
         } catch (ExecutionException ex) {
             System.out.println("Unable to retrieve result of task. " +
                     "MADAMIRA task may have been aborted: "+ex.getCause());
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
         }
 
         wrapper.shutdown();

@@ -1,7 +1,8 @@
 package feature_extraction;
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Vector;
 public class LexiconMapping {
@@ -43,7 +44,8 @@ public class LexiconMapping {
 		HashMap<String, Vector<Double>> map = new HashMap<String, Vector<Double>>();
 		try {
 			String line;
-			BufferedReader br = new BufferedReader(new FileReader(filename));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(filename), "UTF-8"));
 			
 			while ((line = br.readLine()) != null) {
 				if(line.length() > 0){
@@ -103,7 +105,8 @@ public class LexiconMapping {
 		HashMap<String, Double> map = new HashMap<String, Double>();
 		try {
 			String line;
-			BufferedReader br = new BufferedReader(new FileReader(filename));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(filename), "UTF-8"));
 
 			while ((line = br.readLine()) != null) {
 				
@@ -148,7 +151,8 @@ public class LexiconMapping {
 		HashMap<String, Vector<Double>> map = new HashMap<String, Vector<Double>>();
 		try {
 			String line;
-			BufferedReader br = new BufferedReader(new FileReader(filename));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(filename), "UTF-8"));
 			br.readLine();
 			while ((line = br.readLine()) != null) {
 				String[] s = line.split(",");
@@ -177,7 +181,8 @@ public class LexiconMapping {
 		HashMap<String, Double> map = new HashMap<String, Double>();
 		try{
 			String line;
-			BufferedReader br = new BufferedReader(new FileReader(filename));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(filename), "UTF-8"));
 			
 			while ((line = br.readLine()) != null) {
 				if(line.length()>0 && line.charAt(0) != '/'){
@@ -217,7 +222,8 @@ public class LexiconMapping {
 		Vector<String> neg = new Vector<String>();
 		try{
 			String line;
-			BufferedReader br = new BufferedReader(new FileReader(filename));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(filename), "UTF-8"));
 			br.readLine();
 			while ((line = br.readLine()) != null) {
 				String word = "";
@@ -239,9 +245,3 @@ public class LexiconMapping {
 		return neg;
 	}
 }
-
-
-
-
-
-

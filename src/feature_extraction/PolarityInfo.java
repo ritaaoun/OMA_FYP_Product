@@ -57,7 +57,7 @@ public class PolarityInfo
 				try{
 					word = normalizedTweet.elementAt(i);
 				}
-				catch(Exception e) {
+				catch(Exception e) {					
 					System.out.println("normalizedTweet vector is not large enough. Please contact authors with output.");
 					e.printStackTrace();
 					word = "";
