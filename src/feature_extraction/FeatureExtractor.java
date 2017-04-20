@@ -1,7 +1,7 @@
 package feature_extraction;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+//import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Vector;
 
@@ -14,17 +14,17 @@ public class FeatureExtractor {
 	 * @param onlyNgrams Whether only n-gram features are desired, or all features
 	 */
 	@SuppressWarnings("unchecked")
-	public static void generateFeatureFile(String outputFilename, LinkedHashMap<String, Integer> data, boolean onlyNgrams) {
+	public static void generateFeatureFile(String outputFilename, Vector<String> data, boolean onlyNgrams) {
 		try {
 			Vector<HashMap<String, Object>> preprocessed = new Vector<HashMap<String, Object>>();
 			Vector<Integer> labels = new Vector<Integer>();
 			
 			int nbOfTweets = data.size();
 			
-			for (String tweet : data.keySet())
+			for (String tweet : data)
 			{
 				preprocessed.add(Preprocessor.preprocess(tweet));
-				labels.add(data.get(tweet));
+				labels.add(0);
 			}
 				
 			String input = "Intermediate\\in.xml";
@@ -61,8 +61,7 @@ public class FeatureExtractor {
 
 			for(int i=0; i<nbOfTweets; ++i){
 				Vector<Integer> tweetFeatures = features.elementAt(i);
-				int label = labels.elementAt(i);
-				writer.print(label + " ");
+				writer.print("0 ");
 				
 				for(int j=0; j<nbOfFeatures; ++j){
 					Integer f = tweetFeatures.elementAt(j);

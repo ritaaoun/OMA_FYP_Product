@@ -83,8 +83,6 @@ public class XMLParser {
 			DOMSource source = new DOMSource(doc);
 			
 			FileOutputStream f = new FileOutputStream(fileName);
-//			
-//			StreamResult result = new StreamResult(f);
 			StreamResult result = new StreamResult(new OutputStreamWriter(f, "UTF-8"));
 			transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 			transformer.transform(source, result);

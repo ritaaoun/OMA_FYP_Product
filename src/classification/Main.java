@@ -1,6 +1,6 @@
 package classification;
 
-import java.util.LinkedHashMap;
+//import java.util.LinkedHashMap;
 import java.util.Vector;
 
 import feature_extraction.FeatureExtractor;
@@ -17,16 +17,9 @@ public class Main {
 			
 			Vector<String> tweets = TweetIO.readTweetsFromFile(tweetLocation);
 			
-			LinkedHashMap<String, Integer> labeledTweets = new LinkedHashMap<String, Integer>();
-			
-			for (String tweet : tweets) {
-				// All tweets are given label 0 since the label is unknown
-				labeledTweets.put(tweet, 0);
-			}
-			
 			String featureFile = "Intermediate\\features.txt";
 			
-			FeatureExtractor.generateFeatureFile(featureFile, labeledTweets, false);
+			FeatureExtractor.generateFeatureFile(featureFile, tweets, false);
 			
 			String modelFile = "Resources\\Model\\rbfc+2g-4.txt";
 			
